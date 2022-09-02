@@ -33,7 +33,7 @@ const loadAllCatagory = async() => {
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     const res = await fetch(url);
     const data = await res.json();
-    displayAllCatagory(data.data)
+    console.log(data.data)
 }
 
 const displayAllCatagory = allCatagories =>{
@@ -44,13 +44,12 @@ const displayAllCatagory = allCatagories =>{
         allCatagoryDiv.innerHTML = `
         <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="${allcategory.img}" class="img-fluid rounded-start" alt="...">
+                    <img src="${allcategory.author.img}" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      <h5 class="card-title">${allcategory.title}</h5>
+                      <p class="card-text">${allcategory.details}</p> 
                     </div>
                   </div>
                 </div>
@@ -60,4 +59,3 @@ const displayAllCatagory = allCatagories =>{
 } 
 
 loadAllCatagory();
-
